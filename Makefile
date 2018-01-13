@@ -8,14 +8,16 @@ CHROMEDRIVER_PATH = $(CURDIR)/bin/chromedriver
 
 .PHONY: test
 test: ./node_modules/.bin/tap
+	# 1. Start Selenium standalone server passing browsers' paths
+	# 2. Wait for Selenium to start
+	# 3. Execute tests
 	java \
 	  -Dwebdriver.gecko.driver=$(GECKODRIVER_PATH) \
 	  -Dwebdriver.chrome.driver=$(CHROMEDRIVER_PATH) \
 	  -jar $(SELENIUM_JAR) & \
-	until `curl $(SELENIUM_URL)/status -o /dev/null --silent`; do \
-		printf "Waiting for selenium...\r"; \
-	done && \
-	npm test && echo "Ok" || echo "Nok"
+	until `curl $(SELENIUM_URL)/status -o /dev/null --silent`; do printf "Waiting for selenium...\r"; done && \
+	./node_modules/.bin/tap test/index.js && echo "Ok" || echo "Nok"
+	# 4. Kill Selenium server
 	kill -9 $$(lsof -ti tcp:4444)
 
 $(SELENIUM_JAR):
