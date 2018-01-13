@@ -7,7 +7,7 @@ GECKODRIVER_PATH = $(CURDIR)/bin/geckodriver
 CHROMEDRIVER_PATH = $(CURDIR)/bin/chromedriver
 
 .PHONY: test
-test: ./node_modules/.bin/tap
+test: $(SELENIUM_JAR) ./node_modules/.bin/tap
 	# 1. Start Selenium standalone server passing browsers' paths
 	# 2. Wait for Selenium to start
 	# 3. Execute tests
@@ -21,6 +21,7 @@ test: ./node_modules/.bin/tap
 	kill -9 $$(lsof -ti tcp:4444)
 
 $(SELENIUM_JAR):
+	mkdir -p $(@D)
 	curl $(SELENIUM_JAR_URL) > $@
 
 node_modules: package-lock.json
