@@ -1,0 +1,27 @@
+{
+  "name": "retronews-ci",
+  "version": "1.0.0",
+  "description": "",
+  "main": "script.js",
+  "scripts": {
+    "test": "tap test/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/goodenough/retronews-ci.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/goodenough/retronews-ci/issues"
+  },
+  "homepage": "https://github.com/goodenough/retronews-ci#readme",
+  "dependencies": {
+    "async": "^2.5.0",
+    "rc": "^1.2.2",
+    "selenium-webdriver": "^3.6.0",
+    "tap": "^10.7.3",
+    "underscore": "^1.8.3",
+    "wd": "^1.4.1"
+  }
+}

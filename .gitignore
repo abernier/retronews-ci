@@ -1,0 +1,6 @@
+.DS_Store
+/bin/geckodriver
+/bin/chromedriver
+/.retronewscirc
+/node_modules
+/tmp

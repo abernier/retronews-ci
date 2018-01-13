@@ -1,0 +1,19 @@
+{
+  "selenium_hub": {
+    "hostname": "localhost",
+    "protocol": "http",
+    "port": "4444",
+    "pathname": "/wd/hub"
+  },
+  "saucelabs_username": null,
+  "saucelabs_accesskey": null,
+  "selenium_capabilities": {
+      "0": {
+          "browserName": "chrome"
+      },
+      "1": {
+          "browserName": "firefox"
+      }
+  },
+  "selenium_concurrent": 2
+}
